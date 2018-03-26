@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.web3j.quorum.tx.ClientTransactionManager"/>
+<fullyQualifiedTypeName name="org.web3j.quorum.methods.request.PrivateTransaction"/>
+<fullyQualifiedTypeName name="org.web3j.protocol.ipc.UnixIpcService"/>
+<fullyQualifiedTypeName name="org.web3j.protocol.Web3j"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ExecutorService"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Future"/>
+<fullyQualifiedTypeName name="java.util.concurrent.Callable"/>
+<fullyQualifiedTypeName name="org.web3j.quorum.Quorum"/>
+<fullyQualifiedTypeName name="org.web3j.protocol.http.HttpService"/>
+<fullyQualifiedTypeName name="org.web3j.quorum.methods.response.QuorumNodeInfo"/>
+<fullyQualifiedTypeName name="org.web3j.codegen.SolidityFunctionWrapperGenerator"/>
+<fullyQualifiedTypeName name="org.web3j.abi.FunctionEncoder"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="org.web3j.abi.datatypes.Utf8String"/>
+<fullyQualifiedTypeName name="org.web3j.protocol.core.methods.request.Transaction"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="TestPrivateTransaction"/>
+<fullyQualifiedTypeName name="org.web3j.utils.Files"/>
+<fullyQualifiedTypeName name="java.nio.file.Paths"/>
+<fullyQualifiedTypeName name="java.nio.file.Files"/>
+<fullyQualifiedTypeName name="org.web3j.abi.TypeReference"/>
+<fullyQualifiedTypeName name="org.web3j.abi.datatypes.Uint"/>
+<fullyQualifiedTypeName name="org.web3j.abi.datatypes.generated.Uint256"/>
+<fullyQualifiedTypeName name="com.aamer.CompareContract"/>
+<fullyQualifiedTypeName name="org.web3j.abi.datatypes.Address"/>
+<fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+<fullyQualifiedTypeName name="java.math.BigInteger"/>
+<fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="com.aamer.java8.Person"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

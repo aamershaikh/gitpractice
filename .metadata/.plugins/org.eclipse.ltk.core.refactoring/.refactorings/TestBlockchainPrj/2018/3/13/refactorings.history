@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;TestBlockchainPrj/resources/Multiply.sol&apos; to &apos;TestLogsEvents.sol&apos;" description="Rename resource &apos;Multiply.sol&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="resources/Multiply.sol" name="TestLogsEvents.sol" stamp="1522039758983" updateReferences="true"/>
+</session>

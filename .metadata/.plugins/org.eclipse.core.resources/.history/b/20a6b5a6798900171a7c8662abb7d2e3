@@ -1,0 +1,110 @@
+package com.aamer.workflow;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.web3j.abi.datatypes.generated.Bytes32;
+import org.web3j.abi.datatypes.generated.Uint256;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.quorum.Quorum;
+import org.web3j.quorum.tx.ClientTransactionManager;
+
+import com.aamer.BuyerContract;
+import com.aamer.SellerContract;
+
+public class MainWorkflowClass {
+
+	public static void main(String[] args) {
+		sellerContractNodeOne();
+		
+		buyerContractNodeFour();
+		
+		compareValuesInContract();
+	}
+
+	
+	private static void compareValuesInContract() {
+		
+	}
+
+
+	private static void buyerContractNodeFour() {
+		
+		// connect to local geth node 4
+    	Quorum quorumNode4 = Quorum.build(new HttpService("http://localhost:22003"));
+    	
+    	// privateFor Node 1 and 5
+    	List<String> list = new ArrayList<String>();
+		list.add("BULeR8JyUWhiuuCMU/HLA0Q5pzkYT+cHII3ZKBey3Bo=");
+		list.add("R56gy4dn24YOjwyesTczYa8m5xhP6hF2uTMCju/1xkY=");
+		
+		//set bytes32 data indirectly
+		String key = "1";
+		byte[] byteValue = key.getBytes();
+        byte[] byteValueLen32 = new byte[32];
+        System.arraycopy(byteValue, 0, byteValueLen32, 0, byteValue.length);
+        Bytes32 value = new Bytes32(byteValueLen32);
+		
+		String name = "Aamer";
+		byte[] byteValue1 = name.getBytes();
+        byte[] byteValueLen321 = new byte[32];
+        System.arraycopy(byteValue1, 0, byteValueLen321, 0, byteValue.length);
+        Bytes32 value1 = new Bytes32(byteValueLen32);
+		
+		ClientTransactionManager ctm = new ClientTransactionManager(quorumNode4,"0x9186eb3d20cbd1f5f992a950d808c4495153abd5", list);
+		
+		BuyerContract buyerContract;
+		
+		try {
+			buyerContract = BuyerContract.deploy(quorumNode4, ctm, new BigInteger("300000"), new BigInteger("600000"), null).get();
+			String sellerContractAddress = buyerContract.getContractAddress();
+			System.out.println("Buyer Contract Address  = "+sellerContractAddress);
+			buyerContract.StoreBuyerDetails(value, value1, new Uint256(new BigInteger("100")));
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+	
+				
+	}
+
+	private static void sellerContractNodeOne() {
+		
+		// connect to local geth node 1
+    	Quorum quorumNode1 = Quorum.build(new HttpService("http://localhost:22000"));
+    	
+    	// privateFor Node 4 and 5
+    	List<String> list = new ArrayList<String>();
+		list.add("oNspPPgszVUFw0qmGFfWwh1uxVUXgvBxleXORHj07g8=");
+		list.add("R56gy4dn24YOjwyesTczYa8m5xhP6hF2uTMCju/1xkY=");
+		
+		//set bytes32 data indirectly
+		String key = "1";
+		byte[] byteValue = key.getBytes();
+        byte[] byteValueLen32 = new byte[32];
+        System.arraycopy(byteValue, 0, byteValueLen32, 0, byteValue.length);
+        Bytes32 value = new Bytes32(byteValueLen32);
+		
+		String name = "Aamer";
+		byte[] byteValue1 = name.getBytes();
+        byte[] byteValueLen321 = new byte[32];
+        System.arraycopy(byteValue1, 0, byteValueLen321, 0, byteValue.length);
+        Bytes32 value1 = new Bytes32(byteValueLen32);
+		
+		ClientTransactionManager ctm = new ClientTransactionManager(quorumNode1,"0xed9d02e382b34818e88b88a309c7fe71e65f419d", list);
+		
+		SellerContract sellerContract;
+		
+		try {
+			sellerContract = SellerContract.deploy(quorumNode1, ctm, new BigInteger("300000"), new BigInteger("600000"), null).get();
+			String sellerContractAddress = sellerContract.getContractAddress();
+			System.out.println("Seller Contract Address  = "+sellerContractAddress);
+			sellerContract.StoreSellerDetails(value, value1, new Uint256(new BigInteger("100")));
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+	}
+
+}

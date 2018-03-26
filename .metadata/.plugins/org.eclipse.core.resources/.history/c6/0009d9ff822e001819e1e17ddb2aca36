@@ -1,0 +1,9 @@
+package com.aamer;
+
+public class TestEventsAndLogs {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

@@ -1,0 +1,27 @@
+
+import org.web3j.codegen.SolidityFunctionWrapperGenerator;
+
+
+public class TestPrivateTransaction {
+
+	public static void main(String[] args) {
+		// use solidity smart contract wrapper
+		String [] strArray = {"/Users/aamershaikh/Documents/Softwares/SmartContractsMetadataFiles/Multiply.bin",
+							  "/Users/aamershaikh/Documents/Softwares/SmartContractsMetadataFiles/Multiply.abi",
+							  "-o", "/Users/aamershaikh/Documents/workspace/TestBlockchainPrj/src/",
+							  "-p", "com.aamer"};
+		try {
+			SolidityFunctionWrapperGenerator.main(strArray);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		// set up quorum object
+		
+		
+		
+	}
+
+	
+
+}

@@ -1,0 +1,34 @@
+package com.aamer;
+
+import java.math.BigInteger;
+import java.util.concurrent.ExecutionException;
+
+import org.web3j.abi.datatypes.generated.Uint256;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.quorum.Quorum;
+import org.web3j.quorum.tx.ClientTransactionManager;
+import org.web3j.tx.Contract;
+
+public class TestEventsAndLogs {
+
+	public static void main(String[] args) {
+		
+		// connect to local geth node 1
+    	Quorum quorumNode1 = Quorum.build(new HttpService("http://localhost:22001"));
+    	
+    	ClientTransactionManager ctm = new ClientTransactionManager(quorumNode1,"0x0fbdc686b912d7722dc86510934589e0aaf3b55a", null);
+    	
+    	Multiply m = null;
+    	
+    	m = Multiply.load("0x1932c48b2bf8102ba33b4a6b545c32236e342f34", quorumNode1, ctm, Contract.GAS_PRICE, Contract.GAS_LIMIT);
+    	
+    	try {
+			m.multiply(new Uint256(BigInteger.valueOf(5))).get();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
+    	
+	}
+
+}
