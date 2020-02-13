@@ -1,0 +1,20 @@
+const odbc = require('odbc');
+
+function connectToDatabase() {
+    odbc.connect('Driver={ODBC Driver 13 for SQL Server};Server=tcp:aamersampledwserver.database.windows.net,1433;Database=aamersampledw;Uid=aamer;Pwd=R@ve1234;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
+    .then(function(data){
+        console.log(data);
+          // connection1 is now an open Connection
+            console.log("Run query");
+            data.query('select * from [dbo].[DimCurrency]', function(err,result){
+                if (error) { console.error(error) 
+            }
+            console.log("result is :"+result);
+    })
+    }).catch(function(data1){
+        console.log("error is :", data1);
+    });
+  
+}
+
+connectToDatabase();
